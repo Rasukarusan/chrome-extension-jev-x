@@ -1,5 +1,11 @@
 # AI驚き屋スタンプ
 
+
+
+https://github.com/user-attachments/assets/940e9431-4c54-4c5c-88dd-91e2735d9b93
+
+
+
 X（Twitter）のタイムラインに流れてくる投稿を、判断専用 AI [Jev](https://docs.typesafe.ai)（TypeSafe AI）で判定し、熱盛風のスタンプをドンと押す Chrome 拡張。AI驚き屋には「驚屋（オドロキヤ）」、それ以外には「見ろ！」を押す。
 
 ## 使い方
