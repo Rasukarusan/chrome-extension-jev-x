@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "AI驚き屋スタンプ",
+  "version": "0.1.0",
+  "description": "X のタイムラインから AI驚き屋 を Jev で判定し、驚屋スタンプを押します。",
+  "permissions": ["storage"],
+  "host_permissions": ["https://api.typesafe.ai/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://x.com/*", "https://twitter.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": { "default_title": "AI驚き屋スタンプの設定" },
+  "options_ui": { "page": "options.html", "open_in_tab": true }
+}

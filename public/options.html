@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>AI驚き屋スタンプ 設定</title>
+  <style>
+    :root { --ink: #ee4a16; --paper: #f3f0e2; --text: #222; --muted: #666; --bg: #fff; --line: #ddd; }
+    @media (prefers-color-scheme: dark) {
+      :root { --text: #eee; --muted: #aaa; --bg: #15181c; --line: #333; }
+    }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.7 system-ui, "Hiragino Sans", sans-serif; }
+    main { max-width: 640px; margin: 0 auto; padding: 40px 16px 80px; }
+    h1 { display: inline-block; margin: 0 0 24px; padding: 4px 20px; color: var(--ink); background: var(--paper);
+      border: 6px solid var(--ink); border-radius: 18px; font-size: 32px; font-weight: 900; transform: rotate(-3deg); }
+    section { padding: 20px 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 8px; font-size: 16px; }
+    p.hint { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+    input[type=password], textarea { box-sizing: border-box; width: 100%; padding: 8px 10px; border: 1px solid var(--line);
+      border-radius: 8px; background: transparent; color: inherit; font: inherit; }
+    textarea { min-height: 120px; resize: vertical; }
+    input[type=range] { width: 100%; accent-color: var(--ink); }
+    button { margin-top: 10px; padding: 8px 18px; border: 0; border-radius: 999px; background: var(--ink); color: #fff;
+      font: inherit; font-weight: 700; cursor: pointer; }
+    button:disabled { opacity: .5; cursor: default; }
+    a { color: var(--ink); }
+    .row { display: flex; align-items: center; gap: 8px; }
+    #saved { color: var(--ink); font-size: 13px; }
+    #result { margin-top: 12px; white-space: pre-wrap; font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>驚屋 設定</h1>
+
+  <section>
+    <h2>Jev API キー</h2>
+    <input id="apiKey" type="password" autocomplete="off" placeholder="TypeSafe の API キー">
+    <p class="hint"><a href="https://console.typesafe.ai" target="_blank" rel="noreferrer">TypeSafe Console</a> で発行できます。キーはこのブラウザの中だけに保存されます。</p>
+    <div class="row"><button id="saveKey">保存</button><span id="saved"></span></div>
+  </section>
+
+  <section>
+    <label class="row"><input id="enabled" type="checkbox"> スタンプを押す</label>
+  </section>
+
+  <section>
+    <h2>認定の厳しさ: <span id="thresholdLabel"></span></h2>
+    <input id="threshold" type="range" min="0.2" max="0.9" step="0.05">
+    <p class="hint">驚き屋度がこの値以上なら驚屋スタンプ、未満なら「見ろ！」スタンプを押します。値と100%のちょうど中間を超えると炎つきの特級驚屋になります。</p>
+  </section>
+
+  <section>
+    <h2>試しに判定する</h2>
+    <textarea id="sample" placeholder="【絶対見るべき】このAIツール、ヤバすぎる🔥 もうデザイナーいらない。使ってない人は完全に置いていかれます。詳しくはリプ欄👇"></textarea>
+    <button id="try">判定する</button>
+    <div id="result"></div>
+  </section>
+</main>
+<script src="options.js"></script>
+</body>
+</html>
